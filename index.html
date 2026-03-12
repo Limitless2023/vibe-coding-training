@@ -9,23 +9,89 @@
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     background: #fafafa; color: #333; min-height: 100vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 40px 24px;
   }
-  h1 { font-size: 32px; color: #111; margin-bottom: 8px; }
-  .subtitle { font-size: 15px; color: #888; margin-bottom: 40px; }
-  .cards { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; max-width: 800px; }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff; padding: 72px 24px 56px; text-align: center;
+  }
+  .hero h1 {
+    font-size: 36px; font-weight: 700; letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .hero .author {
+    font-size: 14px; color: #94a3b8; margin-bottom: 36px;
+  }
+
+  /* ── Contrast block ── */
+  .contrast {
+    max-width: 640px; margin: 0 auto 40px; text-align: left;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 24px 28px;
+  }
+  .contrast .line {
+    font-size: 17px; line-height: 1.7; color: #e2e8f0;
+  }
+  .contrast .highlight {
+    color: #fbbf24; font-weight: 600;
+  }
+  .contrast .punchline {
+    margin-top: 16px; font-size: 15px; color: #94a3b8;
+    border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px;
+  }
+
+  /* ── Stats grid ── */
+  .stats {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    max-width: 720px; margin: 0 auto;
+  }
+  .stat {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 20px 24px; min-width: 140px;
+    text-align: center; flex: 1;
+  }
+  .stat .num {
+    font-size: 32px; font-weight: 700; letter-spacing: -1px;
+    line-height: 1;
+  }
+  .stat .num.accent-blue { color: #60a5fa; }
+  .stat .num.accent-amber { color: #fbbf24; }
+  .stat .num.accent-green { color: #34d399; }
+  .stat .num.accent-red { color: #f87171; }
+  .stat .label {
+    font-size: 13px; color: #94a3b8; margin-top: 6px;
+  }
+
+  /* ── Cost note ── */
+  .cost {
+    margin-top: 28px; font-size: 13px; color: #64748b;
+    max-width: 640px; margin-left: auto; margin-right: auto;
+  }
+  .cost span { color: #94a3b8; }
+
+  /* ── Content section ── */
+  .content {
+    padding: 48px 24px 64px; text-align: center;
+  }
+  .content h2 {
+    font-size: 20px; color: #111; margin-bottom: 24px; font-weight: 600;
+  }
+  .cards {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    justify-content: center; max-width: 800px; margin: 0 auto;
+  }
   .card {
     background: #fff; border: 1px solid #e5e7eb; border-radius: 14px;
     padding: 28px 32px; width: 360px; text-decoration: none; color: inherit;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    transition: all 0.2s ease;
+    transition: all 0.2s ease; text-align: left;
   }
   .card:hover {
     border-color: #3b82f6; box-shadow: 0 4px 20px rgba(59,130,246,0.12);
     transform: translateY(-2px);
   }
-  .card h2 { font-size: 18px; color: #111; margin-bottom: 8px; }
+  .card h3 { font-size: 18px; color: #111; margin-bottom: 8px; }
   .card p { font-size: 14px; color: #666; line-height: 1.6; }
   .card .tag {
     display: inline-block; padding: 2px 10px; border-radius: 12px;
@@ -33,28 +99,80 @@
   }
   .tag-blue { background: #eff6ff; color: #2563eb; }
   .tag-purple { background: #f5f3ff; color: #7c3aed; }
-  .footer { margin-top: 48px; font-size: 12px; color: #bbb; }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center; padding: 24px;
+    font-size: 12px; color: #bbb;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .hero { padding: 48px 20px 40px; }
+    .hero h1 { font-size: 28px; }
+    .contrast { padding: 18px 20px; }
+    .contrast .line { font-size: 15px; }
+    .stat { min-width: 100px; padding: 14px 12px; }
+    .stat .num { font-size: 26px; }
+    .card { width: 100%; }
+  }
 </style>
 </head>
 <body>
 
-<h1>Vibe Coding 实战分享</h1>
-<p class="subtitle">Limitless · 2026-03-12</p>
+<!-- ── Hero ── -->
+<section class="hero">
+  <h1>Vibe Coding 实战分享</h1>
+  <p class="author">Limitless · 2026-03-12</p>
 
-<div class="cards">
-  <a class="card" href="training.html">
-    <span class="tag tag-blue">分享文档</span>
-    <h2>实战分享全文</h2>
-    <p>从一个间距调整到全栈 Feature 开发。5 天、4 仓库、~60 文件、0 行手写代码。包含 Feature 实战、工作流回放、复杂度地图、心得踩坑。</p>
-  </a>
-  <a class="card" href="collaboration.html">
-    <span class="tag tag-purple">协作分析</span>
-    <h2>协作模式与耗时分析</h2>
-    <p>7 种 Agent 协作模式详解 + 18 个 Feature 逐项耗时估算。整体节奏比例：讨论 20% / 开发 55% / 测试 25%。</p>
-  </a>
-</div>
+  <div class="contrast">
+    <div class="line">「这些功能是我上周做的。」</div>
+    <div class="line">「我不是开发，我是<span class="highlight">售前</span>。一周前我才第一次拿到代码权限。」</div>
+    <div class="punchline">接下来和大家聊聊，这件事是怎么发生的。</div>
+  </div>
 
-<p class="footer">Powered by Vibe Coding with Claude Code / Codex</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="num accent-blue">4</div>
+      <div class="label">仓库</div>
+    </div>
+    <div class="stat">
+      <div class="num accent-amber">~60</div>
+      <div class="label">文件</div>
+    </div>
+    <div class="stat">
+      <div class="num accent-green">7</div>
+      <div class="label">新组件</div>
+    </div>
+    <div class="stat">
+      <div class="num accent-red">0 行</div>
+      <div class="label">手写代码</div>
+    </div>
+  </div>
+
+  <p class="cost">
+    Token 成本：Claude MAX <span>$200/月 · 周额度用了 50%</span> ｜ Codex <span>$20/月 · 周额度用了 60%</span>
+  </p>
+</section>
+
+<!-- ── Navigation ── -->
+<section class="content">
+  <h2>完整内容</h2>
+  <div class="cards">
+    <a class="card" href="training.html">
+      <span class="tag tag-blue">分享文档</span>
+      <h3>实战分享全文</h3>
+      <p>从一个间距调整到全栈 Feature 开发。故事线 → 实战 Case → 工作流回放 → 复杂度地图 → 心得踩坑 → 推荐工具。</p>
+    </a>
+    <a class="card" href="collaboration.html">
+      <span class="tag tag-purple">协作分析</span>
+      <h3>协作模式与耗时分析</h3>
+      <p>7 种 Agent 协作模式详解 + 18 个 Feature 逐项耗时估算。讨论 20% / 开发 55% / 测试 25%。</p>
+    </a>
+  </div>
+</section>
+
+<p class="footer">Powered by Vibe Coding · Claude Code / Codex · 100% Agent Generated</p>
 
 </body>
 </html>
