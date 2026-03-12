@@ -81,7 +81,8 @@
     50% { transform: translate(-50%,-50%) scale(1.1); opacity: 0.8; }
   }
 
-  .hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 24px; }
+  .hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 24px; width: 100%; }
+  .hero-contrast { margin-bottom: 2rem; }
 
   .hero-label {
     font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase;
@@ -218,7 +219,6 @@
   <button class="dot active" data-index="0"></button>
   <button class="dot" data-index="1"></button>
   <button class="dot" data-index="2"></button>
-  <button class="dot" data-index="3"></button>
 </nav>
 <div class="key-hint"><span>↑</span><span>↓</span> 切换</div>
 
@@ -227,8 +227,18 @@
   <div class="vortex"></div>
   <div class="hero-content">
     <p class="hero-label">Vibe Coding 实战分享</p>
-    <h1>售前做全栈<br/>0 行手写代码</h1>
+    <h1>售前 Vibe Coding 全栈？</h1>
     <p class="sub">我负责售前解决方案，上周五才拿到代码仓库权限。<br/>5 天后，4 个仓库、~60 个文件、7 个新组件上线。</p>
+    <div class="grid-2 hero-contrast">
+      <div class="card">
+        <h3>上周五</h3>
+        <p>第一次拿到生产仓库权限。不会 TypeScript、不会 Java、没碰过这个项目的代码。</p>
+      </div>
+      <div class="card invert">
+        <h3>这周五</h3>
+        <p>跨 4 个仓库交付 18 个 Feature。前端组件、后端 API、框架层改造、全栈联调。</p>
+      </div>
+    </div>
     <div class="cta-group">
       <a href="training.html" class="btn primary">阅读全文</a>
       <a href="collaboration.html" class="btn secondary">协作分析</a>
@@ -257,24 +267,6 @@
       <div class="item">
         <div class="num">0</div>
         <div class="label">手写代码</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Contrast ── -->
-<section class="block" id="contrast">
-  <div class="container">
-    <h2>反差</h2>
-    <p class="lead">不是开发者能不能用 AI 写代码，而是写代码这件事本身正在被重新定义。</p>
-    <div class="grid-2">
-      <div class="card">
-        <h3>上周五</h3>
-        <p>第一次拿到生产仓库权限。不会 TypeScript、不会 Java、没碰过这个项目的代码。</p>
-      </div>
-      <div class="card invert">
-        <h3>这周五</h3>
-        <p>跨 4 个仓库交付 18 个 Feature。前端组件、后端 API、框架层改造、全栈联调。</p>
       </div>
     </div>
   </div>
@@ -311,7 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = [
     document.querySelector('.hero'),
     document.getElementById('numbers'),
-    document.getElementById('contrast'),
     document.getElementById('read')
   ];
   const dots = document.querySelectorAll('.nav-dots .dot');
